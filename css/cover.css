@@ -1,0 +1,132 @@
+
+
+@font-face {
+    font-family: 'Tilt Typeface Neon';
+    src:url(//book_cover/fonts/TiltNeon[HROT\,VROT].ttf);
+}
+@font-face {
+    font-family: 'Tilt Typeface Warp';
+    src:url(//book_cover/fonts/TiltWarp[HROT\,VROT].ttf); 
+}
+
+.cover {
+    width: 500px;
+    height: 700px;
+    position: absolute;
+    background-size: 100%;
+    background-color: beige;
+    border: 1px solid black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    perspective: 800px;
+    z-index: 2;
+    overflow: hidden; /* Contain the vortex within the cover */
+}
+
+p {
+    position: relative;
+    z-index: 3; /* Ensure text is in front of the vortex */
+}
+
+.vortex-base{
+    width: 100%;
+    height: 100%;
+    background: url("../images/vortex.png") no-repeat;
+    
+}
+
+.vortex-animated {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: url("../images/vortex.png") no-repeat;
+    background-size: 100px 100px;
+    left: 50%;
+    top: -200px; /* Start above the container */
+    transform: translateX(-50%) rotate(-45deg);
+    z-index: 1;
+    animation: rainfall 10s linear infinite, changeFilter 5s linear infinite, circularMotion 2s linear infinite; /* Apply rainfall animation */
+}
+
+@keyframes circularMotion {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translate(150px) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translate(150px) rotate(-360deg);
+    }
+}
+
+@keyframes rainfall {
+    0% {
+        top: -200px; /* Start above the container */
+    }
+    100% {
+        top: 100%; /* End below the container */
+    }
+}
+
+@keyframes changeFilter {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        filter: hue-rotate(90deg);
+    }
+    50% {
+        filter: hue-rotate(180deg);
+    }
+    75% {
+        filter: hue-rotate(270deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+
+.square {
+    width: 500px;
+    height: 700px;
+    position: absolute;
+}
+
+.author {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 64px;
+    color: black;
+    font-family: 'Tilt Typeface Neon';
+    text-align: center;
+    z-index: 3; /* Ensure text is in front of the vortex */
+}
+
+.title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 64px;
+    color: black;
+    font-family: 'Tilt Typeface Warp';
+    text-align: center;
+    z-index: 3; /* Ensure text is in front of the vortex */
+}
+
+.best {
+    position: absolute;
+    top: 70%;
+    left: 90%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: black;
+    font-family: 'Tilt Typeface Neon';
+    text-align: left;
+    z-index: 3; /* Ensure text is in front of the vortex */
+}
+
+
